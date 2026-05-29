@@ -128,15 +128,18 @@ export default function Matches({ currentUser }: MatchesProps) {
     const isExactScore = actualL === predictedL && actualV === predictedV;
     const isCorrectOutcome = actualOutcome === predictedOutcome;
 
-    if (isExactScore) {
-      const totalGoals = actualL + actualV;
-      const extraPoint = totalGoals > 3;
-      return rules.exact + (extraPoint ? 1 : 0);
-    } else if (isCorrectOutcome) {
-      return rules.base;
-    } else {
-      return 0;
+    let points = 0;
+    if (isCorrectOutcome) {
+      points += rules.base;
     }
+    if (isExactScore) {
+      points += rules.exact;
+      const totalGoals = actualL + actualV;
+      if (totalGoals > 3) {
+        points += 1;
+      }
+    }
+    return points;
   };
 
   useEffect(() => {

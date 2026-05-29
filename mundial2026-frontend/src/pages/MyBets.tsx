@@ -117,25 +117,34 @@ export default function MyBets({ currentUser }: MyBetsProps) {
     const isExactScore = actualL === predictedL && actualV === predictedV;
     const isCorrectOutcome = actualOutcome === predictedOutcome;
 
+    let points = 0;
+    const reasons: string[] = [];
+
+    if (isCorrectOutcome) {
+      points += rules.base;
+      reasons.push(`Tendencia Acertada (${rules.base} pts)`);
+    }
     if (isExactScore) {
+      points += rules.exact;
+      reasons.push(`Resultado Exacto (${rules.exact} pts)`);
       const totalGoals = actualL + actualV;
-      const extraPoint = totalGoals > 3;
-      const totalPoints = rules.exact + (extraPoint ? 1 : 0);
-      return { 
-        points: totalPoints, 
-        reason: `Resultado Exacto (${rules.exact} pts)${extraPoint ? ' + 1 pt Extra (>3 goles)' : ''}` 
-      };
-    } else if (isCorrectOutcome) {
-      return { 
-        points: rules.base, 
-        reason: `Tendencia Acertada (${rules.base} pts)` 
-      };
-    } else {
+      if (totalGoals > 3) {
+        points += 1;
+        reasons.push(`1 pt Extra (>3 goles)`);
+      }
+    }
+
+    if (points === 0) {
       return { 
         points: 0, 
         reason: 'Sin puntos acumulados' 
       };
     }
+
+    return { 
+      points, 
+      reason: reasons.join(' + ') 
+    };
   };
 
   if (loading) {

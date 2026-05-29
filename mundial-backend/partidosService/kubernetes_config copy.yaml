@@ -1,0 +1,43 @@
+---
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: partidosservice-deployment
+    namespace: mundial
+    labels:
+      app: partidosservice
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: partidosservice
+    template:
+      metadata:
+        labels:
+          app: partidosservice
+      spec:
+        serviceAccountName: k8sserviceaccount
+        containers:
+        - name: partidosservice
+          image: gcr.io/projectodemos/partidosservice:1.0.7
+          ports:
+          - containerPort: 8080
+          resources:
+            requests:
+              cpu: "100m"           
+---
+  apiVersion: v1
+  kind: Service
+  metadata:
+     name: partidosservice
+     namespace: mundial
+     labels:
+       app: partidosservice
+  spec:
+    type: LoadBalancer
+    ports:
+      - protocol: "TCP"
+        port: 80
+        targetPort: 8080
+    selector:
+      app: partidosservice

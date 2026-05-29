@@ -1,0 +1,13 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: vspartidos
+  namespace: mundial
+spec:
+  http:
+  - match:
+     - uri:
+        prefix: "/partidos"
+    route:
+    - destination:
+        host: partidosservice.mundial.svc.cluster.local

@@ -1,0 +1,13 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: vsusuarios
+  namespace: mundial
+spec:
+  http:
+  - match:
+     - uri:
+        prefix: "/usuarios"
+    route:
+    - destination:
+        host: usuariosservice.mundial.svc.cluster.local

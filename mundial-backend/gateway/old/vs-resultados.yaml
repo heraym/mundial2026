@@ -1,0 +1,13 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: vsresultados
+  namespace: mundial
+spec:
+  http:
+  - match:
+     - uri:
+        prefix: "/grupos/resultados"
+    route:
+    - destination:
+        host: resultadosservice.mundial.svc.cluster.local

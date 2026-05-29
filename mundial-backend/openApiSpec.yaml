@@ -1,0 +1,283 @@
+openapi: 3.0.0
+info:
+  title: API del Mundial
+  description: |-
+    Esta es la API para la aplicación de backend del Mundial 2026.
+    Proporciona endpoints para gestionar partidos, usuarios, apuestas y resultados de los grupos.
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+    description: Servidor de desarrollo local
+tags:
+  - name: Partidos
+    description: Endpoints para obtener información de los partidos.
+  - name: Grupos
+    description: Endpoints para obtener los resultados de los grupos.
+  - name: Usuarios
+    description: Endpoints para gestionar usuarios.
+  - name: Equipos
+    description: Endpoints para gestionar equipos.
+  - name: Resultados
+    description: Endpoints para gestionar resultados.
+  - name: Leaderboard
+    description: Endpoints para gestionar el Leaderboard.
+  - name: Apuestas
+    description: Endpoints para gestionar apuestas.
+   
+   
+
+paths:
+  /apuesta:
+    post:
+      tags:
+        - Apuestas
+      summary: Hacer una apuesta
+      description: Permite hacer una apuesta.
+      requestBody:
+        description: Objeto de la apuesta a crear.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Apuesta'
+      responses:
+        '200':
+          description: Resultado de la Apuesta.
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: OK
+  /apuestas:
+    get:
+      tags:
+        - Apuestas
+      summary: Obtener todos los partidos
+      description: Retorna una lista completa de todos los partidos del torneo.
+      responses:
+        '200':
+          description: Una lista de partidos.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Partido'
+  /partidos:
+    get:
+      tags:
+        - Partidos
+      summary: Obtener todos los partidos
+      description: Retorna una lista completa de todos los partidos del torneo.
+      responses:
+        '200':
+          description: Una lista de partidos.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Partido'
+  /partidos/proximos:
+    get:
+      tags:
+        - Partidos
+      summary: Obtener los próximos partidos
+      description: Retorna una lista de los próximos 3 partidos que no se han jugado.
+      responses:
+        '200':
+          description: Una lista de los próximos partidos.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Partido'
+  /equipos:
+    get:
+      tags:
+        - Equipos
+      summary: Obtener todos los equipos
+      description: Retorna una lista completa de todos los equipos del torneo.
+      responses:
+        '200':
+          description: Una lista de equipos.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Equipo'
+  /leaderboard:
+    get:
+      tags:
+        - Leaderboard
+      summary: Obtener los resultados de las apuestas de los usuarios 
+      description: Retorna una lista de los usuario y los puntos que tienen con las apuestas.
+      responses:
+        '200':
+          description: Una lista de usuarios y puntaje.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Leaderboard'
+  /grupos/resultados:
+    get:
+      tags:
+        - Grupos
+      summary: Obtener los resultados de los grupos
+      description: Calcula y retorna las estadísticas actuales de cada equipo en la fase de grupos.
+      responses:
+        '200':
+          description: Una lista de equipos con sus estadísticas.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Equipo'
+  /usuarios:
+    get:
+      tags:
+        - Usuarios
+      summary: Obtener todos los usuarios
+      description: Retorna una lista de todos los usuarios, ordenados por puntos de forma descendente.
+      responses:
+        '200':
+          description: Una lista de usuarios.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Usuario'
+    post:
+      tags:
+        - Usuarios
+      summary: Crear un nuevo usuario
+      description: Recibe los datos de un nuevo usuario y ejecuta un workflow de onboarding.
+      requestBody:
+        description: Objeto del usuario a crear.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Usuario'
+      responses:
+        '200':
+          description: El usuario fue recibido correctamente.
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: OK
+
+components:
+  schemas:
+    Apuesta:
+      type: object
+      properties:
+        usuario:
+          type: string           
+          example: "jperez"
+        ganador:
+          type: string
+          example: "Argentina"
+        golesLocal:
+          type: integer
+          format: int32
+          example: 2
+        golesVisitante:
+          type: integer
+          format: int32
+          example: 1
+        partido:
+          type: string
+          example: "1"
+    Partido:
+      type: object
+      properties:
+        equipo1:
+          type: string
+          example: "Argentina"
+        equipo2:
+          type: string
+          example: "Brasil"
+        golesLocal:
+          type: integer
+          format: int32
+          example: 2
+        golesVisitante:
+          type: integer
+          format: int32
+          example: 1
+        resultado:
+          type: string
+          enum: [L, E, V]
+          example: "L"
+        jugado:
+          type: boolean
+          example: true
+        dia:
+          type: string
+          format: date-time
+          example: "2026-06-11T19:00:00Z"
+    Equipo:
+      type: object
+      properties:
+        nombre:
+          type: string
+          example: "Argentina"
+        jugados:
+          type: integer
+          format: int32
+          example: 3
+        ganados:
+          type: integer
+          format: int32
+          example: 2
+        empatados:
+          type: integer
+          format: int32
+          example: 1
+        perdidos:
+          type: integer
+          format: int32
+          example: 0
+        golesAFavor:
+          type: integer
+          format: int32
+          example: 5
+        golesEnContra:
+          type: integer
+          format: int32
+          example: 2
+        puntos:
+          type: integer
+          format: int32
+          example: 7
+    Usuario:
+      type: object
+      properties:
+        nombre:
+          type: string
+          example: "Juan"
+        apellido:
+          type: string
+          example: "Perez"
+        usuario:
+          type: string
+          format: string
+          example: "usuario1"
+    Leaderboard:
+      type: object
+      properties:
+        usuario:
+          type: string
+          example: "usuario1"
+        puntos:
+          type: integer
+          format: int32
+          example: 150

@@ -1,0 +1,106 @@
+sh: python3: line 1: syntax error: unexpected end of file from `{' command on line 0
+sh: error importing function definition for `python3'
+sh: pdm: line 1: syntax error: unexpected end of file from `{' command on line 0
+sh: error importing function definition for `pdm'
+sh: pip3: line 1: syntax error: unexpected end of file from `{' command on line 0
+sh: error importing function definition for `pip3'
+sh: npm: line 1: syntax error: unexpected end of file from `{' command on line 0
+sh: error importing function definition for `npm'
+sh: poetry: line 1: syntax error: unexpected end of file from `{' command on line 0
+sh: error importing function definition for `poetry'
+sh: pip: line 1: syntax error: unexpected end of file from `{' command on line 0
+sh: error importing function definition for `pip'
+sh: pipx: line 1: syntax error: unexpected end of file from `{' command on line 0
+sh: error importing function definition for `pipx'
+sh: yarnpkg: line 1: syntax error: unexpected end of file from `{' command on line 0
+sh: error importing function definition for `yarnpkg'
+sh: yarn: line 1: syntax error: unexpected end of file from `{' command on line 0
+sh: error importing function definition for `yarn'
+sh: npx: line 1: syntax error: unexpected end of file from `{' command on line 0
+sh: error importing function definition for `npx'
+sh: pnpm: line 1: syntax error: unexpected end of file from `{' command on line 0
+sh: error importing function definition for `pnpm'
+sh: python: line 1: syntax error: unexpected end of file from `{' command on line 0
+sh: error importing function definition for `python'
+sh: uv: line 1: syntax error: unexpected end of file from `{' command on line 0
+sh: error importing function definition for `uv'
+sh: pnpx: line 1: syntax error: unexpected end of file from `{' command on line 0
+sh: error importing function definition for `pnpx'
+sh: hatch: line 1: syntax error: unexpected end of file from `{' command on line 0
+sh: error importing function definition for `hatch'
+sh: uvx: line 1: syntax error: unexpected end of file from `{' command on line 0
+sh: error importing function definition for `uvx'
+src/App.tsx(1,1): error TS6133: 'React' is declared but its value is never read.
+src/components/Layout.tsx(1,8): error TS6133: 'React' is declared but its value is never read.
+src/components/TabsContainer.tsx(51,28): error TS6133: 'event' is declared but its value is never read.
+src/pages/Matches.tsx(1,8): error TS6133: 'React' is declared but its value is never read.
+src/pages/Matches.tsx(47,9): error TS6133: 'theme' is declared but its value is never read.
+src/pages/Matches.tsx(251,22): error TS6133: 'e' is declared but its value is never read.
+src/pages/Matches.tsx(280,16): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: { component: ElementType<any, keyof IntrinsicElements>; } & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<...> & Omit<...>): Element | null', gave the following error.
+    Property 'component' is missing in type '{ children: Element; item: true; xs: number; key: string; }' but required in type '{ component: ElementType<any, keyof IntrinsicElements>; }'.
+  Overload 2 of 2, '(props: DefaultComponentProps<GridTypeMap<{}, "div">>): Element | null', gave the following error.
+    Type '{ children: Element; item: true; xs: number; key: string; }' is not assignable to type 'IntrinsicAttributes & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<Theme> & Omit<...>'.
+      Property 'item' does not exist on type 'IntrinsicAttributes & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<Theme> & Omit<...>'.
+src/pages/Matches.tsx(300,24): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: { component: ElementType<any, keyof IntrinsicElements>; } & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<...> & Omit<...>): Element | null', gave the following error.
+    Property 'component' is missing in type '{ children: (false | Element)[]; item: true; xs: number; md: number; }' but required in type '{ component: ElementType<any, keyof IntrinsicElements>; }'.
+  Overload 2 of 2, '(props: DefaultComponentProps<GridTypeMap<{}, "div">>): Element | null', gave the following error.
+    Type '{ children: (false | Element)[]; item: true; xs: number; md: number; }' is not assignable to type 'IntrinsicAttributes & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<Theme> & Omit<...>'.
+      Property 'item' does not exist on type 'IntrinsicAttributes & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<Theme> & Omit<...>'.
+src/pages/Matches.tsx(314,28): error TS2304: Cannot find name 'Chip'.
+src/pages/Matches.tsx(319,24): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: { component: ElementType<any, keyof IntrinsicElements>; } & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<...> & Omit<...>): Element | null', gave the following error.
+    Property 'component' is missing in type '{ children: Element[]; item: true; xs: number; md: number; sx: { display: "flex"; alignItems: "center"; justifySelf: "center"; gap: number; }; }' but required in type '{ component: ElementType<any, keyof IntrinsicElements>; }'.
+  Overload 2 of 2, '(props: DefaultComponentProps<GridTypeMap<{}, "div">>): Element | null', gave the following error.
+    Type '{ children: Element[]; item: true; xs: number; md: number; sx: { display: "flex"; alignItems: "center"; justifySelf: "center"; gap: number; }; }' is not assignable to type 'IntrinsicAttributes & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<Theme> & Omit<...>'.
+      Property 'item' does not exist on type 'IntrinsicAttributes & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<Theme> & Omit<...>'.
+src/pages/Matches.tsx(346,24): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: { component: ElementType<any, keyof IntrinsicElements>; } & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<...> & Omit<...>): Element | null', gave the following error.
+    Property 'component' is missing in type '{ children: Element; item: true; xs: number; md: number; sx: { borderLeft: { md: string; }; pl: { md: number; }; }; }' but required in type '{ component: ElementType<any, keyof IntrinsicElements>; }'.
+  Overload 2 of 2, '(props: DefaultComponentProps<GridTypeMap<{}, "div">>): Element | null', gave the following error.
+    Type '{ children: Element; item: true; xs: number; md: number; sx: { borderLeft: { md: string; }; pl: { md: number; }; }; }' is not assignable to type 'IntrinsicAttributes & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<Theme> & Omit<...>'.
+      Property 'item' does not exist on type 'IntrinsicAttributes & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<Theme> & Omit<...>'.
+src/pages/Matches.tsx(423,36): error TS2304: Cannot find name 'Chip'.
+src/pages/MyBets.tsx(1,8): error TS6133: 'React' is declared but its value is never read.
+src/pages/MyBets.tsx(3,20): error TS6133: 'Grid' is declared but its value is never read.
+src/pages/MyBets.tsx(3,32): error TS6133: 'CardContent' is declared but its value is never read.
+src/pages/MyBets.tsx(245,89): error TS2322: Type '{ children: Element; title: string; Arrow: true; TransitionComponent: (props: ZoomProps) => Element; }' is not assignable to type 'IntrinsicAttributes & TooltipProps'.
+  Property 'Arrow' does not exist on type 'IntrinsicAttributes & TooltipProps'. Did you mean 'arrow'?
+src/pages/Teams.tsx(2,1): error TS6133: 'React' is declared but its value is never read.
+src/pages/Users.tsx(1,8): error TS6133: 'React' is declared but its value is never read.
+src/pages/Users.tsx(36,31): error TS6133: 'currentUser' is declared but its value is never read.
+src/pages/Users.tsx(191,22): error TS6133: 'e' is declared but its value is never read.
+src/pages/Users.tsx(261,14): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: { component: ElementType<any, keyof IntrinsicElements>; } & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<...> & Omit<...>): Element | null', gave the following error.
+    Property 'component' is missing in type '{ children: Element; item: true; xs: number; md: number; }' but required in type '{ component: ElementType<any, keyof IntrinsicElements>; }'.
+  Overload 2 of 2, '(props: DefaultComponentProps<GridTypeMap<{}, "div">>): Element | null', gave the following error.
+    Type '{ children: Element; item: true; xs: number; md: number; }' is not assignable to type 'IntrinsicAttributes & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<Theme> & Omit<...>'.
+      Property 'item' does not exist on type 'IntrinsicAttributes & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<Theme> & Omit<...>'.
+src/pages/Users.tsx(310,14): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: { component: ElementType<any, keyof IntrinsicElements>; } & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<...> & Omit<...>): Element | null', gave the following error.
+    Property 'component' is missing in type '{ children: Element; item: true; xs: number; md: number; }' but required in type '{ component: ElementType<any, keyof IntrinsicElements>; }'.
+  Overload 2 of 2, '(props: DefaultComponentProps<GridTypeMap<{}, "div">>): Element | null', gave the following error.
+    Type '{ children: Element; item: true; xs: number; md: number; }' is not assignable to type 'IntrinsicAttributes & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<Theme> & Omit<...>'.
+      Property 'item' does not exist on type 'IntrinsicAttributes & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<Theme> & Omit<...>'.
+src/pages/Users.tsx(328,24): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: { component: ElementType<any, keyof IntrinsicElements>; } & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<...> & Omit<...>): Element | null', gave the following error.
+    Property 'component' is missing in type '{ children: Element; item: true; xs: number; }' but required in type '{ component: ElementType<any, keyof IntrinsicElements>; }'.
+  Overload 2 of 2, '(props: DefaultComponentProps<GridTypeMap<{}, "div">>): Element | null', gave the following error.
+    Type '{ children: Element; item: true; xs: number; }' is not assignable to type 'IntrinsicAttributes & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<Theme> & Omit<...>'.
+      Property 'item' does not exist on type 'IntrinsicAttributes & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<Theme> & Omit<...>'.
+src/pages/Users.tsx(331,38): error TS6133: 'e' is declared but its value is never read.
+src/pages/Users.tsx(338,24): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: { component: ElementType<any, keyof IntrinsicElements>; } & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<...> & Omit<...>): Element | null', gave the following error.
+    Property 'component' is missing in type '{ children: Element; item: true; xs: number; }' but required in type '{ component: ElementType<any, keyof IntrinsicElements>; }'.
+  Overload 2 of 2, '(props: DefaultComponentProps<GridTypeMap<{}, "div">>): Element | null', gave the following error.
+    Type '{ children: Element; item: true; xs: number; }' is not assignable to type 'IntrinsicAttributes & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<Theme> & Omit<...>'.
+      Property 'item' does not exist on type 'IntrinsicAttributes & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<Theme> & Omit<...>'.
+src/pages/Users.tsx(362,20): error TS18048: 'allocations' is possibly 'undefined'.
+src/pages/Users.tsx(368,24): error TS18048: 'allocations' is possibly 'undefined'.
+src/pages/Users.tsx(409,16): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: { component: ElementType<any, keyof IntrinsicElements>; } & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<...> & Omit<...>): Element | null', gave the following error.
+    Property 'component' is missing in type '{ children: Element; item: true; xs: number; md: number; key: string; }' but required in type '{ component: ElementType<any, keyof IntrinsicElements>; }'.
+  Overload 2 of 2, '(props: DefaultComponentProps<GridTypeMap<{}, "div">>): Element | null', gave the following error.
+    Type '{ children: Element; item: true; xs: number; md: number; key: string; }' is not assignable to type 'IntrinsicAttributes & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<Theme> & Omit<...>'.
+      Property 'item' does not exist on type 'IntrinsicAttributes & GridBaseProps & { sx?: SxProps<Theme> | undefined; } & SystemProps<Theme> & Omit<...>'.

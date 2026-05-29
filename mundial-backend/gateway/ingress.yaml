@@ -1,0 +1,69 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mundial-ingress
+  namespace: mundial2026
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: "mundial2026-apis-ip"
+spec:
+  tls:
+  - secretName: mundial2026-secret
+  rules:
+  - http:
+      paths:
+      - path: /partidos
+        pathType: Prefix
+        backend:
+          service:
+            name: partidosservice
+            port: 
+              number: 8080
+      - path: /apuesta
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: apuestasservice
+            port: 
+              number: 8080
+      - path: /apuestas
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: apuestasservice
+            port: 
+              number: 8080
+      - path: /equipos
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: equiposservice
+            port: 
+              number: 8080
+      - path: /grupos/resultados
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: resultadosservice
+            port: 
+              number: 8080
+      - path: /leaderboard
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: leaderboardservice
+            port: 
+              number: 8080
+      - path: /pendientes
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: leaderboardservice
+            port: 
+              number: 8080
+      - path: /usuarios
+        pathType: Prefix
+        backend:
+          service:
+            name: usuariosservice
+            port: 
+              number: 8080

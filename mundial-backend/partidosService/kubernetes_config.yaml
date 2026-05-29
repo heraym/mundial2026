@@ -1,0 +1,45 @@
+---
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: partidosservice-deployment
+    namespace: mundial2026
+    labels:
+      app: partidosservice
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: partidosservice
+    template:
+      metadata:
+        labels:
+          app: partidosservice
+      spec:
+        serviceAccountName: k8sserviceaccount
+        containers:
+        - name: partidosservice
+          image: us-central1-docker.pkg.dev/mundial2026-481712/mundial2026/partidosservice:2.0.2
+          ports:
+          - containerPort: 8080
+          resources:
+            requests:
+              cpu: "50m"
+            limits:
+              cpu: "100m"
+---
+  apiVersion: v1
+  kind: Service
+  metadata:
+     name: partidosservice
+     namespace: mundial2026
+     labels:
+       app: partidosservice
+  spec:
+    type: ClusterIP
+    ports:
+      - name: http
+        port: 8080
+        targetPort: 8080
+    selector:
+      app: partidosservice

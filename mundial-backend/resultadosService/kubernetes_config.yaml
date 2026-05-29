@@ -1,0 +1,45 @@
+---
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: resultadosservice-deployment
+    namespace: mundial2026
+    labels:
+      app: resultadosservice
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: resultadosservice
+    template:
+      metadata:
+        labels:
+          app: resultadosservice
+      spec:
+        serviceAccountName: k8sserviceaccount
+        containers:
+        - name: resultadosservice
+          image: us-central1-docker.pkg.dev/mundial2026-481712/mundial2026/resultadosservice:2.0.0
+          ports:
+          - containerPort: 8080
+          resources:
+            requests:
+              cpu: "50m"
+            limits:
+              cpu: "100m"          
+---
+  apiVersion: v1
+  kind: Service
+  metadata:
+    name: resultadosservice
+    namespace: mundial2026
+    labels:
+      app: resultadosservice
+  spec:
+    type: ClusterIP
+    ports:
+      - name: http
+        port: 8080
+        targetPort: 8080
+    selector:
+      app: resultadosservice
